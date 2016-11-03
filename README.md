@@ -35,7 +35,16 @@ outputs
 
 Currently the following fields are obfuscated:
 
-`password`, `pass`, `token`, `auth`, `secret`, `passphrase`.
+`password`, `pass`, `token`, `auth`, `secret`, `passphrase`, `card`.
+
+Theses default values can be accessed using `hide.BAD_WORDS`:
+
+```js
+var hide = require('hide')
+
+console.log(hide.BAD_WORDS)
+// => [ 'password', 'pass', 'token', 'auth', 'secret', 'passphrase', 'card' ]
+```
 
 ## License
 

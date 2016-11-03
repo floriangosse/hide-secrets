@@ -1,6 +1,6 @@
 var traverse = require('traverse')
 
-var defaultBadWords = [
+var BAD_WORDS = [
   'password',
   'pass',
   'token',
@@ -12,9 +12,9 @@ var defaultBadWords = [
 
 var replacement = '[SECRET]'
 
-module.exports = function (obj, opts) {
+function hide (obj, opts) {
   opts = opts || {}
-  opts.badWords = opts.badWords || defaultBadWords
+  opts.badWords = opts.badWords || hide.BAD_WORDS
 
   return traverse(obj).map(function (n) {
     for (var i = 0, key; (key = this.path[i]) !== undefined; i++) {
@@ -25,6 +25,10 @@ module.exports = function (obj, opts) {
   })
 }
 
+hide.BAD_WORDS = BAD_WORDS
+
 function replaceString (str) {
   if (str) return replacement
 }
+
+module.exports = hide
