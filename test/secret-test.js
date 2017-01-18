@@ -113,3 +113,8 @@ tap.test('it uses custom bad words', function (t) {
   t.equal(out.identity, '[SECRET]')
   t.end()
 })
+
+tap.test('it export default bad words', function (t) {
+  t.ok(Array.isArray(secret.BAD_WORDS));
+  t.end();
+});
