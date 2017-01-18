@@ -115,6 +115,6 @@ tap.test('it uses custom bad words', function (t) {
 })
 
 tap.test('it export default bad words', function (t) {
-  t.ok(Array.isArray(secret.BAD_WORDS));
-  t.end();
-});
+  t.ok(Array.isArray(secret.BAD_WORDS))
+  t.end()
+})
